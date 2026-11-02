@@ -66,10 +66,10 @@ export const FaqSection: React.FC = () => {
           >
             Frequently Asked Questions
           </span>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
+          <h2 className="section-title" style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
             Questions &amp; Technical Details
           </h2>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
+          <p className="section-subtitle" style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
             Everything you need to know about safety, cryptography, and automation mechanics.
           </p>
         </div>
@@ -88,6 +88,7 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={faq.q}
+                className="faq-card"
                 style={{
                   backgroundColor: 'var(--bg-card)',
                   borderRadius: 'var(--radius-md)',
@@ -99,6 +100,8 @@ export const FaqSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
+                  className="faq-btn"
+                  aria-expanded={isOpen}
                   style={{
                     width: '100%',
                     padding: '18px 22px',
@@ -121,6 +124,7 @@ export const FaqSection: React.FC = () => {
 
                 {isOpen && (
                   <div
+                    className="faq-answer"
                     style={{
                       padding: '0 22px 20px 22px',
                       fontSize: '0.875rem',

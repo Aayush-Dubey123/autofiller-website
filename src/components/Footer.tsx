@@ -15,6 +15,7 @@ export const Footer: React.FC = () => {
     >
       <div className="container">
         <div
+          className="footer-top-row"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -27,7 +28,7 @@ export const Footer: React.FC = () => {
           }}
         >
           {/* Logo & Tagline */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="footer-brand" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div
               style={{
                 width: '36px',
@@ -52,20 +53,21 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Nav links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', fontSize: '0.8125rem' }}>
-            <Link href="/" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
+          <div className="footer-links" style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', fontSize: '0.8125rem' }}>
+            <Link href="/" className="footer-link-item" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
               Home
             </Link>
-            <Link href="/privacy" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
+            <Link href="/privacy" className="footer-link-item" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
               Privacy Policy
             </Link>
-            <Link href="/license" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
+            <Link href="/license" className="footer-link-item" style={{ color: '#E2E8F0', textDecoration: 'none' }}>
               MIT License
             </Link>
             <a
               href={SITE_CONFIG.releasesUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="footer-link-item"
               style={{ color: '#E2E8F0', textDecoration: 'none' }}
             >
               Releases
@@ -74,6 +76,7 @@ export const Footer: React.FC = () => {
               href={SITE_CONFIG.githubRepo}
               target="_blank"
               rel="noopener noreferrer"
+              className="footer-link-item"
               style={{ color: '#E2E8F0', textDecoration: 'none' }}
             >
               GitHub
@@ -82,6 +85,7 @@ export const Footer: React.FC = () => {
               href={SITE_CONFIG.portfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="footer-link-item"
               style={{ color: 'var(--bg-sidebar-active)', fontWeight: 700, textDecoration: 'none' }}
             >
               ayushdubey.studio
@@ -91,6 +95,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom line */}
         <div
+          className="footer-bottom-row"
           style={{
             display: 'flex',
             alignItems: 'center',

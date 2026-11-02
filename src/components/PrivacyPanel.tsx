@@ -23,10 +23,10 @@ export const PrivacyPanel: React.FC = () => {
           >
             Data Privacy & Cryptography
           </span>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
+          <h2 className="section-title" style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
             The Zero-Value Privacy Contract
           </h2>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '680px', margin: '8px auto 0 auto' }}>
+          <p className="section-subtitle" style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '680px', margin: '8px auto 0 auto' }}>
             We believe you should know exactly what leaves your machine and what never leaves your PC.
           </p>
         </div>
@@ -69,7 +69,11 @@ export const PrivacyPanel: React.FC = () => {
             className="privacy-table-body"
           >
             {/* Left Column: Local */}
-            <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="privacy-col-local" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div className="privacy-mobile-col-title" style={{ display: 'none', alignItems: 'center', gap: '8px', fontWeight: 800, color: 'var(--text-title)', paddingBottom: '8px', borderBottom: '1px solid var(--border-subtle)', marginBottom: '4px' }}>
+                <HardDrive size={18} color="var(--status-success)" />
+                <span>Processed 100% Locally on Your PC</span>
+              </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <CheckCircle2 size={16} color="var(--status-success)" style={{ flexShrink: 0, marginTop: '3px' }} />
                 <div style={{ fontSize: '0.84375rem', color: 'var(--text-primary)' }}>
@@ -100,7 +104,11 @@ export const PrivacyPanel: React.FC = () => {
             </div>
 
             {/* Right Column: AI Provider */}
-            <div style={{ padding: '24px', borderLeft: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="privacy-col-ai" style={{ padding: '24px', borderLeft: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div className="privacy-mobile-col-title" style={{ display: 'none', alignItems: 'center', gap: '8px', fontWeight: 800, color: 'var(--text-title)', paddingBottom: '8px', borderBottom: '1px solid var(--border-subtle)', marginBottom: '4px' }}>
+                <Cpu size={18} color="#0284C7" />
+                <span>Sent to AI Over TLS (Google Gemini)</span>
+              </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <CheckCircle2 size={16} color="#0284C7" style={{ flexShrink: 0, marginTop: '3px' }} />
                 <div style={{ fontSize: '0.84375rem', color: 'var(--text-primary)' }}>
@@ -127,6 +135,7 @@ export const PrivacyPanel: React.FC = () => {
 
         {/* Security Cards Grid */}
         <div
+          className="security-cards-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',

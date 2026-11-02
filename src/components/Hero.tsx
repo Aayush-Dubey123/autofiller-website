@@ -41,6 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
 
         {/* Headline */}
         <h1
+          className="hero-title"
           style={{
             fontSize: 'clamp(2.25rem, 5vw, 3.75rem)',
             fontWeight: 800,
@@ -55,6 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
 
         {/* Subheadline */}
         <p
+          className="hero-subtitle"
           style={{
             fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
             color: 'var(--text-secondary)',
@@ -68,6 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
 
         {/* CTA Buttons */}
         <div
+          className="hero-cta-buttons"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -79,6 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
         >
           <a
             href={release.installer.url}
+            className="hero-cta-btn"
             style={{
               padding: '14px 28px',
               borderRadius: 'var(--radius-md)',
@@ -99,6 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
 
           <a
             href="#download"
+            className="hero-cta-btn"
             style={{
               padding: '14px 22px',
               borderRadius: 'var(--radius-md)',
@@ -120,6 +125,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
             href={SITE_CONFIG.githubRepo}
             target="_blank"
             rel="noopener noreferrer"
+            className="hero-cta-btn"
             style={{
               padding: '14px 22px',
               borderRadius: 'var(--radius-md)',
@@ -139,6 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
 
         {/* Core Pillars Row */}
         <div
+          className="hero-pillars-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -148,6 +155,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
           }}
         >
           <div
+            className="hero-pillar-card"
             style={{
               padding: '16px',
               backgroundColor: 'var(--bg-card)',
@@ -173,6 +181,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
           </div>
 
           <div
+            className="hero-pillar-card"
             style={{
               padding: '16px',
               backgroundColor: 'var(--bg-card)',
@@ -198,6 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
           </div>
 
           <div
+            className="hero-pillar-card"
             style={{
               padding: '16px',
               backgroundColor: 'var(--bg-card)',
@@ -223,6 +233,7 @@ export const Hero: React.FC<HeroProps> = ({ release }) => {
           </div>
 
           <div
+            className="hero-pillar-card"
             style={{
               padding: '16px',
               backgroundColor: 'var(--bg-card)',

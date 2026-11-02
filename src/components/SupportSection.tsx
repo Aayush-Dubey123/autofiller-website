@@ -13,6 +13,7 @@ export const SupportSection: React.FC = () => {
     >
       <div className="container">
         <div
+          className="support-card"
           style={{
             maxWidth: '820px',
             margin: '0 auto',
@@ -60,6 +61,7 @@ export const SupportSection: React.FC = () => {
           </p>
 
           <div
+            className="support-links"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -73,6 +75,7 @@ export const SupportSection: React.FC = () => {
               href={SITE_CONFIG.portfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="support-link-item"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -90,6 +93,7 @@ export const SupportSection: React.FC = () => {
               href={`${SITE_CONFIG.githubRepo}/issues`}
               target="_blank"
               rel="noopener noreferrer"
+              className="support-link-item"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -105,6 +109,7 @@ export const SupportSection: React.FC = () => {
 
             <a
               href={`mailto:${SITE_CONFIG.supportEmail}`}
+              className="support-link-item"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -122,6 +127,7 @@ export const SupportSection: React.FC = () => {
               href={SITE_CONFIG.githubRepo}
               target="_blank"
               rel="noopener noreferrer"
+              className="support-link-item"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

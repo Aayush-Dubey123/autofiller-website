@@ -53,15 +53,16 @@ export const HowItWorks: React.FC = () => {
           >
             Workflow Breakdown
           </span>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
+          <h2 className="section-title" style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
             How AutoFiller AI Works
           </h2>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
+          <p className="section-subtitle" style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
             A deterministic, human-in-the-loop automation cycle built for trust, privacy, and safety.
           </p>
         </div>
 
         <div
+          className="how-it-works-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
@@ -71,6 +72,7 @@ export const HowItWorks: React.FC = () => {
           {steps.map((s, idx) => (
             <div
               key={s.num}
+              className="how-it-works-card"
               style={{
                 backgroundColor: 'var(--bg-card)',
                 borderRadius: 'var(--radius-lg)',

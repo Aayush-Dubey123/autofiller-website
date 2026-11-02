@@ -26,10 +26,10 @@ export const LimitsSection: React.FC = () => {
           >
             Honest Boundaries
           </span>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
+          <h2 className="section-title" style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
             What AutoFiller AI Does &amp; Doesn&apos;t Do
           </h2>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
+          <p className="section-subtitle" style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
             We refuse to make inflated claims. Here are the realistic boundaries of the system.
           </p>
         </div>

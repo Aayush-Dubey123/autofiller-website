@@ -1,8 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
 import { SITE_CONFIG } from '../config/site.config';
 import { ViewportMetrics } from '../components/ViewportMetrics';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 export const metadata: Metadata = {
   title: `${SITE_CONFIG.name} — ${SITE_CONFIG.taglinePrimary}`,
   description: SITE_CONFIG.description,

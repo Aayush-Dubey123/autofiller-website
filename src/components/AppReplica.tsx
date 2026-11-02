@@ -49,6 +49,7 @@ export const AppReplica: React.FC = () => {
 
         {/* Desktop App Window Frame */}
         <div
+          className="replica-window"
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
@@ -61,6 +62,7 @@ export const AppReplica: React.FC = () => {
         >
           {/* Windows Title Bar */}
           <div
+            className="replica-title-bar"
             style={{
               height: '38px',
               backgroundColor: '#0A2018',
@@ -77,7 +79,7 @@ export const AppReplica: React.FC = () => {
               <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444', display: 'inline-block' }} />
               <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }} />
               <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
-              <span style={{ marginLeft: '10px', color: '#E2E8F0' }}>AutoFiller AI 1.0.0 — Form Automation Session</span>
+              <span className="replica-title-text" style={{ marginLeft: '10px', color: '#E2E8F0' }}>AutoFiller AI 1.0.0 — Form Automation Session</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <span style={{ color: '#10B981', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -162,9 +164,10 @@ export const AppReplica: React.FC = () => {
             </div>
 
             {/* Main Content Workspace */}
-            <div style={{ padding: '24px', backgroundColor: '#F8FAFC', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="replica-workspace" style={{ padding: '24px', backgroundColor: '#F8FAFC', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {/* Session Header Strip */}
               <div
+                className="replica-session-strip"
                 style={{
                   padding: '14px 18px',
                   borderRadius: 'var(--radius-md)',
@@ -179,11 +182,11 @@ export const AppReplica: React.FC = () => {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Globe size={16} color="var(--accent-primary)" />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#0F172A' }}>
+                  <span className="replica-url" style={{ fontSize: '0.8125rem', fontWeight: 700, color: '#0F172A', wordBreak: 'break-all' }}>
                     http://127.0.0.1:8000/mock_school_form.html
                   </span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div className="replica-badges" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span
                     style={{
                       padding: '3px 10px',
@@ -218,6 +221,7 @@ export const AppReplica: React.FC = () => {
 
               {/* Review Ready Alert Banner */}
               <div
+                className="replica-banner"
                 style={{
                   padding: '16px 20px',
                   borderRadius: 'var(--radius-md)',
@@ -241,7 +245,7 @@ export const AppReplica: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingTop: '2px' }}>
+                <div className="replica-banner-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingTop: '2px' }}>
                   <button
                     type="button"
                     style={{
@@ -285,6 +289,7 @@ export const AppReplica: React.FC = () => {
 
               {/* Mock Form Section View (Step 5 of 5) */}
               <div
+                className="replica-form-section"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: 'var(--radius-md)',
@@ -295,7 +300,7 @@ export const AppReplica: React.FC = () => {
                   gap: '14px',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #F1F5F9', paddingBottom: '10px' }}>
+                <div className="replica-form-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #F1F5F9', paddingBottom: '10px' }}>
                   <div style={{ fontWeight: 800, fontSize: '0.875rem', color: '#0F172A' }}>
                     Section 5: Previous School & Admission Details
                   </div>
@@ -357,6 +362,7 @@ export const AppReplica: React.FC = () => {
 
                 {/* Field 3: Terms Checkbox (Left for human) */}
                 <div
+                  className="replica-terms-card"
                   style={{
                     padding: '10px 14px',
                     borderRadius: 'var(--radius-sm)',
@@ -364,15 +370,15 @@ export const AppReplica: React.FC = () => {
                     border: '1px solid #FCD34D',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
                     gap: '12px',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8125rem', color: '#92400E' }}>
-                    <input type="checkbox" disabled style={{ cursor: 'not-allowed' }} />
+                    <input type="checkbox" disabled aria-label="I agree to the school admission terms and conditions" style={{ cursor: 'not-allowed' }} />
                     <span>I agree to the school admission terms and conditions*</span>
                   </div>
                   <span
+                    className="replica-terms-badge"
                     style={{
                       fontSize: '0.7rem',
                       fontWeight: 800,
@@ -391,6 +397,7 @@ export const AppReplica: React.FC = () => {
                 {/* Submit button locked */}
                 <div style={{ paddingTop: '8px' }}>
                   <div
+                    className="replica-locked-btn"
                     style={{
                       width: '100%',
                       padding: '12px',

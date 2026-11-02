@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Download, Check, Copy, AlertTriangle, Terminal, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Download, Check, Copy, AlertTriangle, Terminal, ExternalLink, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
 import { LatestReleaseData } from '../lib/github-release';
 import { SITE_CONFIG } from '../config/site.config';
 
@@ -11,7 +11,7 @@ interface DownloadSectionProps {
 
 export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => {
   const [copiedHash, setCopiedHash] = useState<string | null>(null);
-
+  const [smartScreenOpen, setSmartScreenOpen] = useState(true);
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
     setCopiedHash(id);
@@ -39,16 +39,17 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
           >
             Get AutoFiller AI
           </span>
-          <h2 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
+          <h2 className="section-title" style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-title)', marginTop: '4px' }}>
             Download for Windows (64-bit)
           </h2>
-          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
+          <p className="section-subtitle" style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', maxWidth: '640px', margin: '8px auto 0 auto' }}>
             Requires Windows 10 or Windows 11 (64-bit). No dependencies required; includes bundled Chromium automation engine.
           </p>
         </div>
 
         {/* Dual Cards */}
         <div
+          className="download-cards-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -227,6 +228,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
 
         {/* Checksum & PowerShell Verification Box */}
         <div
+          className="download-hash-box"
           style={{
             maxWidth: '920px',
             margin: '0 auto 36px auto',
@@ -246,6 +248,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {/* Installer Hash */}
             <div
+              className="download-hash-row"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -262,12 +265,13 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
                   Installer SHA-256 ({release.installer.filename}):
                 </span>
-                <code style={{ fontSize: '0.75rem', color: 'var(--text-brand)', wordBreak: 'break-all' }}>
+                <code className="download-hash-code" style={{ fontSize: '0.75rem', color: 'var(--text-brand)', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
                   {release.installer.sha256}
                 </code>
               </div>
               <button
                 onClick={() => copyToClipboard(release.installer.sha256, 'installer')}
+                className="download-copy-btn"
                 style={{
                   padding: '6px 10px',
                   borderRadius: 'var(--radius-sm)',
@@ -289,6 +293,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
 
             {/* Portable Hash */}
             <div
+              className="download-hash-row"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -305,12 +310,13 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
                   Portable SHA-256 ({release.portable.filename}):
                 </span>
-                <code style={{ fontSize: '0.75rem', color: 'var(--text-brand)', wordBreak: 'break-all' }}>
+                <code className="download-hash-code" style={{ fontSize: '0.75rem', color: 'var(--text-brand)', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
                   {release.portable.sha256}
                 </code>
               </div>
               <button
                 onClick={() => copyToClipboard(release.portable.sha256, 'portable')}
+                className="download-copy-btn"
                 style={{
                   padding: '6px 10px',
                   borderRadius: 'var(--radius-sm)',
@@ -334,6 +340,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
               Run in Windows PowerShell to verify:
               <pre
+                className="download-ps-pre"
                 style={{
                   padding: '10px 14px',
                   borderRadius: 'var(--radius-sm)',
@@ -352,6 +359,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
 
         {/* Windows Defender SmartScreen Notice (Responsible Transparency) */}
         <div
+          className="smartscreen-card"
           style={{
             maxWidth: '920px',
             margin: '0 auto',
@@ -361,51 +369,67 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ release }) => 
             padding: '24px 28px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+          <div className="smartscreen-layout" style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
             <AlertTriangle size={24} color="#D97706" style={{ flexShrink: 0, marginTop: '2px' }} />
             <div>
               <h3 style={{ fontSize: '0.9375rem', fontWeight: 800, color: '#92400E' }}>
-                Open-Source Code Signing &amp; Windows SmartScreen Disclosure
-              </h3>
-              <p style={{ fontSize: '0.84375rem', color: '#B45309', marginTop: '6px', lineHeight: 1.6 }}>
-                AutoFiller AI is an independent open-source project. Because commercial Extended Validation (EV) code
-                signing certificates cost hundreds of dollars annually, this software is released without an enterprise commercial signature.
-                When you launch the installer, Windows Defender SmartScreen may display an <em>&quot;Unknown Publisher&quot;</em> prompt.
-              </p>
-
-              <div
-                style={{
-                  marginTop: '12px',
-                  padding: '12px 16px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.8125rem',
-                  color: '#78350F',
-                  lineHeight: 1.6,
-                }}
-              >
-                <strong>Security Recommendation:</strong> Never bypass warnings blindly. Confirm that you downloaded the file from our official repository (<code>github.com/Aayush-Dubey123/autofiller</code>) and verify the SHA-256 hash using the PowerShell snippet above. Once verified, click <strong>&quot;More info&quot;</strong> and then <strong>&quot;Run anyway&quot;</strong>.
-              </div>
-
-              <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <a
-                  href={SITE_CONFIG.releasesUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: '0.8125rem',
-                    fontWeight: 700,
-                    color: '#92400E',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    textDecoration: 'underline',
-                  }}
+                <button
+                  type="button"
+                  onClick={() => setSmartScreenOpen(!smartScreenOpen)}
+                  className="smartscreen-toggle-btn"
+                  aria-expanded={smartScreenOpen}
+                  aria-label="Toggle SmartScreen disclosure"
                 >
-                  <span>View GitHub Release Mirror</span>
-                  <ExternalLink size={13} />
-                </a>
-              </div>
+                  <span>Open-Source Code Signing &amp; Windows SmartScreen Disclosure</span>
+                  <span className="smartscreen-chevron">
+                    {smartScreenOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </span>
+                </button>
+              </h3>
+              {smartScreenOpen && (
+                <div className="smartscreen-body">
+                  <p style={{ fontSize: '0.84375rem', color: '#B45309', marginTop: '6px', lineHeight: 1.6 }}>
+                    AutoFiller AI is an independent open-source project. Because commercial Extended Validation (EV) code
+                    signing certificates cost hundreds of dollars annually, this software is released without an enterprise commercial signature.
+                    When you launch the installer, Windows Defender SmartScreen may display an <em>&quot;Unknown Publisher&quot;</em> prompt.
+                  </p>
+
+                  <div
+                    style={{
+                      marginTop: '12px',
+                      padding: '12px 16px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.8125rem',
+                      color: '#78350F',
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    <strong>Security Recommendation:</strong> Never bypass warnings blindly. Confirm that you downloaded the file from our official repository (<code>github.com/Aayush-Dubey123/autofiller</code>) and verify the SHA-256 hash using the PowerShell snippet above. Once verified, click <strong>&quot;More info&quot;</strong> and then <strong>&quot;Run anyway&quot;</strong>.
+                  </div>
+
+                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <a
+                      href={SITE_CONFIG.releasesUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: '0.8125rem',
+                        fontWeight: 700,
+                        color: '#92400E',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        textDecoration: 'underline',
+                      }}
+                      className="smartscreen-link"
+                    >
+                      <span>View GitHub Release Mirror</span>
+                      <ExternalLink size={13} />
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -65,6 +65,7 @@
   /* Dynamic Layout Sizing - dynamically measured by ViewportMetrics */
   --header-height: 64px;
   --footer-height: 110px;
+  --viewport-height: 100vh;
   --viewport-height: 100svh;
   --content-height: calc(var(--viewport-height) - var(--header-height));
   --content-height-with-footer: calc(var(--viewport-height) - var(--header-height) - var(--footer-height));
